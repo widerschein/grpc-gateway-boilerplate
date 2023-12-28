@@ -12,9 +12,9 @@ import (
 	"strings"
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-	"github.com/johanbrandhorst/grpc-gateway-boilerplate/insecure"
-	usersv1 "github.com/johanbrandhorst/grpc-gateway-boilerplate/proto/users/v1"
-	"github.com/johanbrandhorst/grpc-gateway-boilerplate/third_party"
+	"github.com/widerschein/grpc-gateway-boilerplate/insecure"
+	usersv1 "github.com/widerschein/grpc-gateway-boilerplate/proto/users/v1"
+	"github.com/widerschein/grpc-gateway-boilerplate/third_party"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/grpclog"
