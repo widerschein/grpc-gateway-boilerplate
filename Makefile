@@ -3,7 +3,8 @@ SWAGGER_UI_VERSION:=v4.15.5
 
 generate: generate/proto generate/swagger-ui
 generate/proto:
-	go run github.com/bufbuild/buf/cmd/buf@$(BUF_VERSION) generate
+	go run github.com/bufbuild/buf/cmd/buf@$(BUF_VERSION) generate --template buf.gen.go.yaml
+	go run github.com/bufbuild/buf/cmd/buf@$(BUF_VERSION) generate --template buf.gen.python.yaml --include-imports
 generate/swagger-ui:
 	SWAGGER_UI_VERSION=$(SWAGGER_UI_VERSION) ./scripts/generate-swagger-ui.sh
 
