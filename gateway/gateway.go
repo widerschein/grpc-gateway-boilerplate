@@ -13,10 +13,10 @@ import (
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/widerschein/grpc-gateway-boilerplate/insecure"
-	usersv1 "github.com/widerschein/grpc-gateway-boilerplate/proto/users/v1"
+	usersv1 "github.com/widerschein/grpc-gateway-boilerplate/gen/go/users/v1"
 	"github.com/widerschein/grpc-gateway-boilerplate/third_party"
 	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials"
+    cred_insecure "google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/grpclog"
 )
 
@@ -43,8 +43,8 @@ func Run(dialAddr string) error {
 	conn, err := grpc.DialContext(
 		context.Background(),
 		dialAddr,
-		grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(insecure.CertPool, "")),
-		grpc.WithBlock(),
+		grpc.WithTransportCredentials(cred_insecure.NewCredentials()),
+        grpc.WithBlock(),
 	)
 	if err != nil {
 		return fmt.Errorf("failed to dial server: %w", err)
